@@ -4,12 +4,14 @@ import { makeStyles } from "@material-ui/core"
 // icons
 import MenuIcon from "@material-ui/icons/Menu"
 import CloseIcon from "@material-ui/icons/Close"
+// COMPONENTS
+import NavigationList from "./NavigationList"
 
 const useStyles = makeStyles((theme) => ({
 	navigation: {
 		width: "200px",
 		minHeight: "100vh",
-		backgroundColor: "#ccc",
+		backgroundColor: "#db281b",
 		transition: "all .3s ease",
 		position: "fixed",
 		left: "0",
@@ -49,7 +51,8 @@ const useStyles = makeStyles((theme) => ({
 
 const Navigation = () => {
 	// STYLES
-	const { navigation, nav_closed, menu_burguer, menu_open } = useStyles()
+	const { navigation, nav_closed, menu_burguer, menu_open, estilosParaList } =
+		useStyles()
 	//-------------------------------
 
 	// estado de menu (MOBILE)
@@ -73,6 +76,9 @@ const Navigation = () => {
 					<MenuIcon />
 				</div>
 			)}
+
+			{/* LIST */}
+			<NavigationList />
 		</nav>
 	)
 }
