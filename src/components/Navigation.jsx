@@ -51,8 +51,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Navigation = () => {
 	// STYLES
-	const { navigation, nav_closed, menu_burguer, menu_open, estilosParaList } =
-		useStyles()
+	const { navigation, nav_closed, menu_burguer, menu_open } = useStyles()
 	//-------------------------------
 
 	// estado de menu (MOBILE)

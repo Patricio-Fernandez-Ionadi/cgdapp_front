@@ -9,11 +9,21 @@ import DestacadosPage from "./pages/DestacadosPage"
 // COMPONENTS
 import Navigation from "./components/Navigation"
 import LoginPage from "./pages/LoginPage"
+// STYLES
+import { makeStyles } from "@material-ui/core"
+const useStyles = makeStyles((theme) => ({
+	header: {
+		width: "100%",
+		height: "60px",
+	},
+}))
 
 const App = () => {
+	const classes = useStyles()
 	return (
 		<>
 			<Navigation />
+			<div className={classes.header}></div>
 			<Switch>
 				<Route path='/destacados' component={DestacadosPage} />
 				<Route path='/gastos' component={GastosPage} />
