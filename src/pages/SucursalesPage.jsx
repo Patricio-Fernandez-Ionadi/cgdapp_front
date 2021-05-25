@@ -3,20 +3,35 @@ import React, { useEffect, useState } from "react"
 import { makeStyles } from "@material-ui/core"
 import { useHistory } from "react-router"
 const useStyles = makeStyles((theme) => ({
-	botonera: {
-		maxWidth: "100%",
-		display: "grid",
-		gridTemplateColumns: "repeat(9, 1fr)",
-		gridTemplateRows: "repeat(6, 40px)",
-	},
-	button: {
+	sucRow: {
+		width: "90%",
 		margin: "3px",
-		display: "inline-block",
+		border: "1px solid #444",
+		borderRadius: "3px",
+		display: "flex",
+		justifyContent: "space-between",
+		padding: "5px",
+		cursor: " pointer",
+		backgroundColor: "#ffef96",
+		transition: "all .2s ease",
+		"&:hover": {
+			backgroundColor: "#c94c4c",
+			fontWeight: "bold",
+		},
+	},
+
+	// gridcontainer
+	sucursalesContainer: {
+		width: "100%",
+		backgroundColor: "#db281b",
+		display: "flex",
+		flexDirection: "column",
+		alignItems: "center",
 	},
 }))
 
 const SucursalesPage = () => {
-	const { botonera, button } = useStyles()
+	const { sucRow, sucursalesContainer } = useStyles()
 	const [sucursales, setSucursales] = useState([])
 
 	useEffect(() => {
@@ -35,15 +50,21 @@ const SucursalesPage = () => {
 		return (
 			<div>
 				<h1>Sucursales</h1>
-				<div className={botonera}>
+
+				<div className={sucursalesContainer}>
+					<div className={sucRow}>
+						<div>Sucursal:</div>
+						<div>Id de sucursal</div>
+					</div>
 					{sucursales.map((each) => (
-						<button
-							className={button}
+						<div
+							className={sucRow}
 							key={each.sucursalID}
 							onClick={() => handleSucSelection(each.sucursalID)}
 						>
-							{each.sucursal !== "" ? each.sucursal : each.sucursalID}
-						</button>
+							<div>{each.sucursal}</div>
+							<div>{each.sucursalID}</div>
+						</div>
 					))}
 				</div>
 			</div>

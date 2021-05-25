@@ -22,8 +22,8 @@ const useStyles = makeStyles((theme) => ({
 
 	// MENU
 	menu_burguer: {
-		width: "40px",
-		height: "40px",
+		width: "35px",
+		height: "35px",
 		margin: "10px",
 		display: "flex",
 		justifyContent: "center",
