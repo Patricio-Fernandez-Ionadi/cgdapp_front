@@ -32,8 +32,8 @@ const FacturasPage = () => {
 			setInfoToSave({ ...infoToSave, factura: valueToSave.toLocaleLowerCase() })
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	/* GET DATA */
 	useEffect(() => {
-		/* GET DATA */
 		fetch("http://localhost:3001/info")
 			.then((res) => res.json())
 			.then((res) => {

@@ -5,6 +5,8 @@ import FacturasPage from "./pages/FacturasPage"
 import NotFoundPage from "./pages/NotFoundPage"
 import SucursalesPage from "./pages/SucursalesPage"
 import SucursalesIDPage from "./pages/SucursalesIDPage"
+import SucursalesIDFacturaPage from "./pages/SucursalesIDFacturaPage"
+import SucursalesIDProveedorPage from "./pages/SucursalesIDProveedorPage"
 import GastosPage from "./pages/GastosPage"
 import DestacadosPage from "./pages/DestacadosPage"
 // COMPONENTS
@@ -28,6 +30,14 @@ const App = () => {
 			<Switch>
 				<Route path='/destacados' component={DestacadosPage} />
 				<Route path='/gastos' component={GastosPage} />
+				<Route
+					path='/sucursales/:id/F/:_id'
+					component={SucursalesIDFacturaPage}
+				/>
+				<Route
+					path='/sucursales/:id/PR/:proveedor'
+					component={SucursalesIDProveedorPage}
+				/>
 				<Route path='/sucursales/:id' component={SucursalesIDPage} />
 				<Route path='/sucursales' component={SucursalesPage} />
 				<Route path='/facturas' component={FacturasPage} />

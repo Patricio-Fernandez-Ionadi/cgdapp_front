@@ -3,7 +3,7 @@ import { useEffect } from "react"
 import { useState } from "react"
 
 const LoginPage = () => {
-	async function logUser(object) {
+	/* 	async function logUser(object) {
 		const response = await fetch("http://localhost:3001/login", {
 			method: "POST",
 			mode: "cors",
@@ -15,7 +15,7 @@ const LoginPage = () => {
 			body: JSON.stringify(object),
 		})
 		return response.json()
-	}
+	} */
 	//-------------------------------------------------------------------------------
 	// estado de los inputs
 	const [user, setUser] = useState({ user: "", pass: "" })
