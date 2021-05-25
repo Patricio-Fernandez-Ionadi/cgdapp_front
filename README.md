@@ -11,10 +11,8 @@ You can find the past project on
 'ReactApp-ControlGastos'.
 [Repository](https://github.com/Patricio-Fernandez-Ionadi/ReactApp-ControlGastos).
 
-The back-end of this app is goint to be [here](asd) `not uploaded yet`
-
-**The back-end repository is not uploaded yet because i have to see how to
-protect some delicate information**
+The back-end of this app is
+[here](https://github.com/Patricio-Fernandez-Ionadi/cgdapp_back).
 
 ## Dependencias
 

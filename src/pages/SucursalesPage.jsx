@@ -28,7 +28,6 @@ const SucursalesPage = () => {
 	const history = useHistory()
 
 	const handleSucSelection = (id) => {
-		console.log(id)
 		history.push(`/sucursales/${id}`)
 	}
 
