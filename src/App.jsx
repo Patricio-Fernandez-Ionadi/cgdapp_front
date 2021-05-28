@@ -15,15 +15,13 @@ import Navigation from "./components/Navigation"
 // STYLES
 import { makeStyles } from "@material-ui/core"
 const useStyles = makeStyles((theme) => ({
-	header: {
-		width: "100%",
-		height: "60px",
-	},
 	bodyContainer: {
 		width: "90%",
+		minHeight: "calc(100vh - 80px)",
 		marginTop: "0",
 		marginLeft: "auto",
 		marginRight: "auto",
+		backgroundColor: "#F1FAEE",
 	},
 }))
 
@@ -33,7 +31,6 @@ const App = () => {
 		<>
 			<Navigation />
 			<div className={classes.bodyContainer}>
-				<div className={classes.header}></div>
 				<Switch>
 					<Route path='/destacados' component={DestacadosPage} />
 					<Route path='/gastos' component={GastosPage} />

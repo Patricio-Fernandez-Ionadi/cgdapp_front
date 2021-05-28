@@ -2,7 +2,22 @@ import React, { useEffect, useState } from "react"
 // STYLES
 import { makeStyles } from "@material-ui/core"
 import { useHistory } from "react-router"
+// #ffcd01 Amarillo
+// #db281b Rojo
+
+//  #1D3557 darkblue
+//  #457B9D midblue
+//  #A8DADC lightblue
+//  #F1FAEE ligthbase
+//  #E63946 strongbase
 const useStyles = makeStyles((theme) => ({
+	sucursalesContainer: {
+		width: "100%",
+		backgroundColor: "#1D3557",
+		display: "flex",
+		flexDirection: "column",
+		alignItems: "center",
+	},
 	sucRow: {
 		width: "90%",
 		margin: "3px",
@@ -11,27 +26,23 @@ const useStyles = makeStyles((theme) => ({
 		display: "flex",
 		justifyContent: "space-between",
 		padding: "5px",
-		cursor: " pointer",
-		backgroundColor: "#ffef96",
-		transition: "all .2s ease",
-		"&:hover": {
-			backgroundColor: "#c94c4c",
-			fontWeight: "bold",
-		},
+		backgroundColor: "#A8DADC",
 	},
-
-	// gridcontainer
-	sucursalesContainer: {
-		width: "100%",
-		backgroundColor: "#db281b",
-		display: "flex",
-		flexDirection: "column",
-		alignItems: "center",
+	sucRowNotFirst: {
+		transition: "all .2s ease",
+		cursor: " pointer",
+		"&:hover": {
+			backgroundColor: "#457B9D",
+			fontWeight: "bold",
+			"& *": {
+				color: "#F1FAEE",
+			},
+		},
 	},
 }))
 
 const SucursalesPage = () => {
-	const { sucRow, sucursalesContainer } = useStyles()
+	const { sucRow, sucRowNotFirst, sucursalesContainer } = useStyles()
 	const [sucursales, setSucursales] = useState([])
 
 	useEffect(() => {
@@ -56,16 +67,18 @@ const SucursalesPage = () => {
 						<div>Sucursal:</div>
 						<div>Id de sucursal</div>
 					</div>
-					{sucursales.map((each) => (
-						<div
-							className={sucRow}
-							key={each.sucursalID}
-							onClick={() => handleSucSelection(each.sucursalID)}
-						>
-							<div>{each.sucursal}</div>
-							<div>{each.sucursalID}</div>
-						</div>
-					))}
+					{sucursales.map((each) => {
+						return (
+							<div
+								key={each.sucursalID}
+								onClick={() => handleSucSelection(each.sucursalID)}
+								className={`${sucRowNotFirst} ${sucRow}`}
+							>
+								<div>{each.sucursal}</div>
+								<div>{each.sucursalID}</div>
+							</div>
+						)
+					})}
 				</div>
 			</div>
 		)

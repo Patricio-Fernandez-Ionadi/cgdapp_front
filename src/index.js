@@ -35,3 +35,9 @@ ReactDOM.render(
 
 // #ffcd01 Amarillo
 // #db281b Rojo
+
+//  #1D3557 darkblue
+//  #457B9D midblue
+//  #A8DADC lightblue
+//  #F1FAEE ligthbase
+//  #E63946 strongbase
