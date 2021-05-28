@@ -11,7 +11,7 @@ import GastosPage from "./pages/GastosPage"
 import DestacadosPage from "./pages/DestacadosPage"
 import LoginPage from "./pages/LoginPage"
 // COMPONENTS
-import Navigation from "./components/Navigation"
+import Navigation from "./components/navigation/Navigation"
 // STYLES
 import { makeStyles } from "@material-ui/core"
 const useStyles = makeStyles((theme) => ({

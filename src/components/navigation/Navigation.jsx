@@ -30,7 +30,6 @@ const useStyles = makeStyles((theme) => ({
 	logoContainer: {
 		width: "90%",
 		maxWidth: "200px",
-		backgroundColor: "yellow",
 	},
 	// ----------------
 	searchbarContainer: {
@@ -117,14 +116,17 @@ const Navigation = () => {
 	const [searchParam, setSearchParam] = useState("")
 	const handleSubmitSearch = (e) => {
 		e.preventDefault()
-		console.log(e.target.elements[0].value)
+		let inputValue = e.target.elements[0].value
+		setSearchParam(inputValue)
 	}
+	console.log(searchParam)
 	//-------------------------------
 	// estado de menu
 	const [isOpen, setIsOpen] = useState(false)
 	const handleMenu = () => {
 		setIsOpen(!isOpen)
 	}
+	console.log(isOpen)
 	//-------------------------------
 
 	return (
