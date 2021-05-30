@@ -1,6 +1,6 @@
 import React from "react"
 import clsx from "clsx"
-import { makeStyles, useTheme, fade } from "@material-ui/core/styles"
+import { makeStyles, useTheme } from "@material-ui/core/styles"
 import Drawer from "@material-ui/core/Drawer"
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
@@ -11,11 +11,12 @@ import IconButton from "@material-ui/core/IconButton"
 import MenuIcon from "@material-ui/icons/Menu"
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft"
 import ChevronRightIcon from "@material-ui/icons/ChevronRight"
-
 // COMPONENTS
 import AppbarSearch from "./AppbarSearch"
 import DrawerList from "./DrawerList"
 import AppbarUserMenu from "./AppbarUserMenu"
+// Const
+import { colors } from "const/colors"
 
 const drawerWidth = 240
 
@@ -25,9 +26,10 @@ const useStyles = makeStyles((theme) => ({
 	},
 	root: {
 		display: "flex",
-		// color: theme.palette.textColor.light,
 	},
 	appBar: {
+		color: colors.text.secondary,
+		backgroundColor: colors.primary.main,
 		zIndex: theme.zIndex.drawer + 1,
 		transition: theme.transitions.create(["width", "margin"], {
 			easing: theme.transitions.easing.sharp,
@@ -78,42 +80,9 @@ const useStyles = makeStyles((theme) => ({
 		padding: theme.spacing(0, 1),
 		...theme.mixins.toolbar,
 	},
-	// ----- search
-	search: {
-		position: "relative",
-		borderRadius: theme.shape.borderRadius,
-		backgroundColor: fade(theme.palette.secondary.main, 0.35),
-		"&:hover": {
-			backgroundColor: fade(theme.palette.secondary.main, 0.75),
-		},
-		marginRight: theme.spacing(2),
-		marginLeft: 0,
-		width: "100%",
-		[theme.breakpoints.up("sm")]: {
-			marginLeft: theme.spacing(3),
-			width: "auto",
-		},
-	},
-	searchIcon: {
-		padding: theme.spacing(0, 2),
-		height: "100%",
-		position: "absolute",
-		pointerEvents: "none",
-		display: "flex",
-		alignItems: "center",
-		justifyContent: "center",
-	},
-	inputRoot: {
-		color: "inherit",
-	},
-	inputInput: {
-		padding: theme.spacing(1, 1, 1, 0),
-		paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-		transition: theme.transitions.create("width"),
-		width: "100%",
-		[theme.breakpoints.up("md")]: {
-			width: "20ch",
-		},
+	content: {
+		flexGrow: 1,
+		padding: theme.spacing(3),
 	},
 }))
 
@@ -124,8 +93,8 @@ export default function MainNavigation({ children }) {
 	const theme = useTheme()
 	const [open, setOpen] = React.useState(false)
 	const handleDrawerOpen = () => setOpen(true)
-
 	const handleDrawerClose = () => setOpen(false)
+	// ------------------------------------------------
 
 	// ------------------------------------------------
 
@@ -186,11 +155,19 @@ export default function MainNavigation({ children }) {
 				</div>
 				{/* LIST EN DRAWER */}
 				<Divider />
-				<DrawerList arr={["Inbox", "Starred", "Send email", "Drafts"]} />
+				<DrawerList
+					arr={["Inbox", "Starred", "Send email", "Drafts"]}
+					closer={handleDrawerClose}
+				/>
 				<Divider />
-				<DrawerList arr={["All mail", "Trash", "Spam"]} />
+				<DrawerList
+					arr={["All mail", "Trash", "Spam"]}
+					closer={handleDrawerClose}
+				/>
 			</Drawer>
-			{children}
+			<main className={classes.content} onClick={handleDrawerClose}>
+				{children}
+			</main>
 		</div>
 	)
 }

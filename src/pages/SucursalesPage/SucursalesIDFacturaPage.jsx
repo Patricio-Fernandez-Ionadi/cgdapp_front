@@ -1,7 +1,7 @@
 import React from "react"
 import { useEffect, useState } from "react"
 import { useHistory } from "react-router"
-import useIdSucursal from "../hooks/useIdSucursal"
+import useIdSucursal from "hooks/useIdSucursal"
 
 const SucursalesIDFacturaPage = ({ match }) => {
 	const history = useHistory()
@@ -18,7 +18,7 @@ const SucursalesIDFacturaPage = ({ match }) => {
 	if (facturaInfo) {
 		return (
 			<div>
-				<button onClick={(e) => history.goBack()}>atras</button>
+				<button onClick={() => history.goBack()}>atras</button>
 				<p>Sucursal: {sucActual}</p>
 				<p>Factura: {facturaInfo.factura}</p>
 				<p>mes: {facturaInfo.mes}</p>

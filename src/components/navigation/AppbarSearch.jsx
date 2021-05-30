@@ -1,6 +1,8 @@
 import SearchIcon from "@material-ui/icons/Search"
 import InputBase from "@material-ui/core/InputBase"
 import { makeStyles, fade } from "@material-ui/core/styles"
+// Const
+import { colors } from "const/colors"
 
 const useStyles = makeStyles((theme) => ({
 	grow: {
@@ -11,9 +13,11 @@ const useStyles = makeStyles((theme) => ({
 	search: {
 		position: "relative",
 		borderRadius: theme.shape.borderRadius,
-		backgroundColor: fade(theme.palette.secondary.main, 0.35),
+		backgroundColor: fade(colors.secondary.main, 0.8),
+		transition: "all .2s ease",
 		"&:hover": {
-			backgroundColor: fade(theme.palette.secondary.main, 0.75),
+			backgroundColor: fade(colors.secondary.main, 1),
+			color: colors.text.primary,
 		},
 		marginRight: theme.spacing(2),
 		marginLeft: 0,

@@ -1,7 +1,7 @@
 import { useHistory } from "react-router"
 import { Link } from "react-router-dom"
 // custom hooks
-import useIdSucursal from "../hooks/useIdSucursal"
+import useIdSucursal from "hooks/useIdSucursal"
 
 const SucursalesIDPage = ({ match }) => {
 	const history = useHistory()

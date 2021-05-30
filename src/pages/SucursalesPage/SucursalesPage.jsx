@@ -2,18 +2,13 @@ import React, { useEffect, useState } from "react"
 // STYLES
 import { makeStyles } from "@material-ui/core"
 import { useHistory } from "react-router"
-// #ffcd01 Amarillo
-// #db281b Rojo
+// const
+import { colors } from "const/colors"
 
-//  #1D3557 darkblue
-//  #457B9D midblue
-//  #A8DADC lightblue
-//  #F1FAEE ligthbase
-//  #E63946 strongbase
 const useStyles = makeStyles((theme) => ({
 	sucursalesContainer: {
 		width: "100%",
-		backgroundColor: "#1D3557",
+		backgroundColor: colors.primary.main,
 		display: "flex",
 		flexDirection: "column",
 		alignItems: "center",
@@ -26,23 +21,29 @@ const useStyles = makeStyles((theme) => ({
 		display: "flex",
 		justifyContent: "space-between",
 		padding: "5px",
-		backgroundColor: "#A8DADC",
+		backgroundColor: colors.secondary.main,
 	},
 	sucRowNotFirst: {
 		transition: "all .2s ease",
 		cursor: " pointer",
 		"&:hover": {
-			backgroundColor: "#457B9D",
+			backgroundColor: colors.primary.dark,
 			fontWeight: "bold",
 			"& *": {
 				color: "#F1FAEE",
 			},
 		},
 	},
+	flex: {
+		padding: "0 10px",
+		width: "90%",
+		display: "flex",
+		justifyContent: "space-between",
+	},
 }))
 
 const SucursalesPage = () => {
-	const { sucRow, sucRowNotFirst, sucursalesContainer } = useStyles()
+	const { sucRow, sucRowNotFirst, sucursalesContainer, flex } = useStyles()
 	const [sucursales, setSucursales] = useState([])
 
 	useEffect(() => {
@@ -63,7 +64,7 @@ const SucursalesPage = () => {
 				<h1>Sucursales</h1>
 
 				<div className={sucursalesContainer}>
-					<div className={sucRow}>
+					<div className={flex}>
 						<div>Sucursal:</div>
 						<div>Id de sucursal</div>
 					</div>
