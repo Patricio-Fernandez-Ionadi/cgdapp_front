@@ -1,4 +1,7 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+// Context
+import UserContext from "../../contexts/UserContextProvider"
+// Styles
 import { IconButton } from "@material-ui/core"
 import Menu from "@material-ui/core/Menu"
 import AccountCircle from "@material-ui/icons/AccountCircle"
@@ -10,7 +13,6 @@ const AppbarUserMenu = () => {
 	const isMenuOpen = Boolean(anchorEl)
 	const handleProfileMenuOpen = (event) => setAnchorEl(event.currentTarget)
 	const handleMenuClose = () => setAnchorEl(null)
-
 	const renderMenu = (
 		<Menu
 			anchorEl={anchorEl}
@@ -26,19 +28,27 @@ const AppbarUserMenu = () => {
 		</Menu>
 	)
 
+	const { user } = useContext(UserContext)
+
 	return (
 		<>
-			<IconButton
-				edge='end'
-				aria-label='account of current user'
-				aria-controls={menuId}
-				aria-haspopup='true'
-				onClick={handleProfileMenuOpen}
-				color='inherit'
-			>
-				<AccountCircle />
-			</IconButton>
-			{renderMenu}
+			{user ? (
+				<>
+					<IconButton
+						edge='end'
+						aria-label='account of current user'
+						aria-controls={menuId}
+						aria-haspopup='true'
+						onClick={handleProfileMenuOpen}
+						color='inherit'
+					>
+						<AccountCircle />
+					</IconButton>
+					{renderMenu}
+				</>
+			) : (
+				<p>Iniciar Sesion</p>
+			)}
 		</>
 	)
 }

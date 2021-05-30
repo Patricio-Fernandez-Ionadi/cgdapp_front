@@ -1,4 +1,6 @@
 import { Route, Switch } from "react-router-dom"
+// Context
+import { UserContextProvider } from "./contexts/UserContextProvider"
 // PAGES
 import HomePage from "./pages/HomePage"
 import FacturasPage from "./pages/FacturasPage"
@@ -31,28 +33,30 @@ const App = () => {
 	return (
 		<>
 			<Pallete>
-				<MainNavigation>
-					<div className={classes.bodyContainer}>
-						<Switch>
-							<Route path='/destacados' component={DestacadosPage} />
-							<Route path='/gastos' component={GastosPage} />
-							<Route
-								path='/sucursales/:id/F/:_id'
-								component={SucursalesIDFacturaPage}
-							/>
-							<Route
-								path='/sucursales/:id/PR/:proveedor'
-								component={SucursalesIDProveedorPage}
-							/>
-							<Route path='/sucursales/:id' component={SucursalesIDPage} />
-							<Route path='/sucursales' component={SucursalesPage} />
-							<Route path='/facturas' component={FacturasPage} />
-							<Route path='/login' component={LoginPage} />
-							<Route exact path='/' component={HomePage} />
-							<Route path='/*' component={NotFoundPage} />
-						</Switch>
-					</div>
-				</MainNavigation>
+				<UserContextProvider>
+					<MainNavigation>
+						<div className={classes.bodyContainer}>
+							<Switch>
+								<Route path='/destacados' component={DestacadosPage} />
+								<Route path='/gastos' component={GastosPage} />
+								<Route
+									path='/sucursales/:id/F/:_id'
+									component={SucursalesIDFacturaPage}
+								/>
+								<Route
+									path='/sucursales/:id/PR/:proveedor'
+									component={SucursalesIDProveedorPage}
+								/>
+								<Route path='/sucursales/:id' component={SucursalesIDPage} />
+								<Route path='/sucursales' component={SucursalesPage} />
+								<Route path='/facturas' component={FacturasPage} />
+								<Route path='/login' component={LoginPage} />
+								<Route exact path='/' component={HomePage} />
+								<Route path='/*' component={NotFoundPage} />
+							</Switch>
+						</div>
+					</MainNavigation>
+				</UserContextProvider>
 			</Pallete>
 		</>
 	)
