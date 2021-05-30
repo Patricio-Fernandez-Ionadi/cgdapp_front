@@ -11,14 +11,15 @@ import GastosPage from "./pages/GastosPage"
 import DestacadosPage from "./pages/DestacadosPage"
 import LoginPage from "./pages/LoginPage"
 // COMPONENTS
-import Navigation from "./components/navigation/Navigation"
+import MainNavigation from "./components/navigation/MainNavigation"
 // STYLES
+import Pallete from "./contexts/ThemeProvider"
 import { makeStyles } from "@material-ui/core"
 const useStyles = makeStyles((theme) => ({
 	bodyContainer: {
 		width: "90%",
-		minHeight: "calc(100vh - 80px)",
-		marginTop: "0",
+		minHeight: "100vh",
+		paddingTop: "70px",
 		marginLeft: "auto",
 		marginRight: "auto",
 		backgroundColor: "#F1FAEE",
@@ -29,27 +30,30 @@ const App = () => {
 	const classes = useStyles()
 	return (
 		<>
-			<Navigation />
-			<div className={classes.bodyContainer}>
-				<Switch>
-					<Route path='/destacados' component={DestacadosPage} />
-					<Route path='/gastos' component={GastosPage} />
-					<Route
-						path='/sucursales/:id/F/:_id'
-						component={SucursalesIDFacturaPage}
-					/>
-					<Route
-						path='/sucursales/:id/PR/:proveedor'
-						component={SucursalesIDProveedorPage}
-					/>
-					<Route path='/sucursales/:id' component={SucursalesIDPage} />
-					<Route path='/sucursales' component={SucursalesPage} />
-					<Route path='/facturas' component={FacturasPage} />
-					<Route path='/login' component={LoginPage} />
-					<Route exact path='/' component={HomePage} />
-					<Route path='/*' component={NotFoundPage} />
-				</Switch>
-			</div>
+			<Pallete>
+				<MainNavigation>
+					<div className={classes.bodyContainer}>
+						<Switch>
+							<Route path='/destacados' component={DestacadosPage} />
+							<Route path='/gastos' component={GastosPage} />
+							<Route
+								path='/sucursales/:id/F/:_id'
+								component={SucursalesIDFacturaPage}
+							/>
+							<Route
+								path='/sucursales/:id/PR/:proveedor'
+								component={SucursalesIDProveedorPage}
+							/>
+							<Route path='/sucursales/:id' component={SucursalesIDPage} />
+							<Route path='/sucursales' component={SucursalesPage} />
+							<Route path='/facturas' component={FacturasPage} />
+							<Route path='/login' component={LoginPage} />
+							<Route exact path='/' component={HomePage} />
+							<Route path='/*' component={NotFoundPage} />
+						</Switch>
+					</div>
+				</MainNavigation>
+			</Pallete>
 		</>
 	)
 }
