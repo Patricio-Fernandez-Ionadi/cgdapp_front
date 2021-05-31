@@ -13,12 +13,13 @@ const initialUser = {
 
 const UserContextProvider = ({ children }) => {
 	const [user, setUser] = useState(initialUser)
+
 	const login = () => setUser(initialUser)
 	const logout = () => setUser(null)
-
 	const isLogged = () => !!user
-	const hasRole = (role) => user?.role === role
-
+	const hasRole = function (role) {
+		return user?.role === role
+	}
 	const data = { user, login, logout, hasRole, isLogged }
 
 	return <UserContext.Provider value={data}>{children}</UserContext.Provider>

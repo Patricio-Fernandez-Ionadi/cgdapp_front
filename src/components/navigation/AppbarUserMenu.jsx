@@ -8,10 +8,10 @@ import { IconButton } from "@material-ui/core"
 import Menu from "@material-ui/core/Menu"
 import AccountCircle from "@material-ui/icons/AccountCircle"
 import MenuItem from "@material-ui/core/MenuItem"
-import routes from "../../const/routes"
+import routes from "const/routes"
 
 const AppbarUserMenu = () => {
-	const { user, login } = useContext(UserContext)
+	const { user, logout } = useContext(UserContext)
 	const history = useHistory()
 
 	const menuId = "primary-search-account-menu"
@@ -25,12 +25,13 @@ const AppbarUserMenu = () => {
 		handleMenuClose()
 	}
 	const handleAccountMenuItem = () => {
-		// history.push(`/${user.id}/account`)
-		login()
+		history.push(`/${user.id}/account`)
 		handleMenuClose()
 	}
 	const handleLogoutMenuItem = () => {
-		console.log("cerrar sesion")
+		handleMenuClose()
+		logout()
+		history.push(`${routes.home.url}`)
 	}
 
 	const renderMenu = (
