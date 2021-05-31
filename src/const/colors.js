@@ -24,4 +24,4 @@ const colors = {
 		secondary: "#fafafa",
 	},
 }
-export { colors }
+export default colors

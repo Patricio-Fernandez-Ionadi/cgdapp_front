@@ -2,7 +2,7 @@ import SearchIcon from "@material-ui/icons/Search"
 import InputBase from "@material-ui/core/InputBase"
 import { makeStyles, fade } from "@material-ui/core/styles"
 // Const
-import { colors } from "const/colors"
+import colors from "const/colors"
 
 const useStyles = makeStyles((theme) => ({
 	grow: {

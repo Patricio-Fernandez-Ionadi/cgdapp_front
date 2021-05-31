@@ -1,17 +1,16 @@
+import { Link } from "react-router-dom"
 import { List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core"
-import InboxIcon from "@material-ui/icons/MoveToInbox"
-import MailIcon from "@material-ui/icons/Mail"
 
 const DrawerList = ({ arr, closer }) => {
 	return (
 		<List>
-			{arr.map((text, index) => (
-				<ListItem button key={text} onClick={closer}>
-					<ListItemIcon>
-						{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-					</ListItemIcon>
-					<ListItemText primary={text} />
-				</ListItem>
+			{arr.map((each) => (
+				<Link key={each.url} to={each.url} style={{ textDecoration: "none" }}>
+					<ListItem button onClick={closer}>
+						<ListItemIcon>{each.icon}</ListItemIcon>
+						<ListItemText primary={each.name} />
+					</ListItem>
+				</Link>
 			))}
 		</List>
 	)

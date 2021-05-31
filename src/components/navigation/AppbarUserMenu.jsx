@@ -8,9 +8,10 @@ import { IconButton } from "@material-ui/core"
 import Menu from "@material-ui/core/Menu"
 import AccountCircle from "@material-ui/icons/AccountCircle"
 import MenuItem from "@material-ui/core/MenuItem"
+import routes from "../../const/routes"
 
 const AppbarUserMenu = () => {
-	const { user } = useContext(UserContext)
+	const { user, login } = useContext(UserContext)
 	const history = useHistory()
 
 	const menuId = "primary-search-account-menu"
@@ -24,8 +25,12 @@ const AppbarUserMenu = () => {
 		handleMenuClose()
 	}
 	const handleAccountMenuItem = () => {
-		history.push(`/${user.id}/account`)
+		// history.push(`/${user.id}/account`)
+		login()
 		handleMenuClose()
+	}
+	const handleLogoutMenuItem = () => {
+		console.log("cerrar sesion")
 	}
 
 	const renderMenu = (
@@ -40,6 +45,7 @@ const AppbarUserMenu = () => {
 		>
 			<MenuItem onClick={handleProfileMenuItem}>Perfil</MenuItem>
 			<MenuItem onClick={handleAccountMenuItem}>Cuenta</MenuItem>
+			<MenuItem onClick={handleLogoutMenuItem}>Cerrar Sesion</MenuItem>
 		</Menu>
 	)
 
@@ -60,7 +66,7 @@ const AppbarUserMenu = () => {
 					{renderMenu}
 				</>
 			) : (
-				<Link to='/login'>Iniciar Sesion</Link>
+				<Link to={routes.login.url}>Iniciar Sesion</Link>
 			)}
 		</>
 	)

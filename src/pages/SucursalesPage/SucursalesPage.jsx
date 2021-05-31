@@ -3,12 +3,13 @@ import React, { useEffect, useState } from "react"
 import { makeStyles } from "@material-ui/core"
 import { useHistory } from "react-router"
 // const
-import { colors } from "const/colors"
+import colors from "const/colors"
+// COMPONENTS
+import Loading from "../../components/Loading"
 
 const useStyles = makeStyles((theme) => ({
 	sucursalesContainer: {
 		width: "100%",
-		backgroundColor: colors.primary.main,
 		display: "flex",
 		flexDirection: "column",
 		alignItems: "center",
@@ -27,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 		transition: "all .2s ease",
 		cursor: " pointer",
 		"&:hover": {
-			backgroundColor: colors.primary.dark,
+			backgroundColor: colors.primary.main,
 			fontWeight: "bold",
 			"& *": {
 				color: "#F1FAEE",
@@ -44,19 +45,18 @@ const useStyles = makeStyles((theme) => ({
 
 const SucursalesPage = () => {
 	const { sucRow, sucRowNotFirst, sucursalesContainer, flex } = useStyles()
+	const history = useHistory()
 	const [sucursales, setSucursales] = useState([])
+
+	const handleSucSelection = (id) => {
+		history.push(`/sucursales/${id}`)
+	}
 
 	useEffect(() => {
 		fetch("http://localhost:3001/api/sucursales")
 			.then((res) => res.json())
 			.then((res) => setSucursales(res))
 	}, [])
-
-	const history = useHistory()
-
-	const handleSucSelection = (id) => {
-		history.push(`/sucursales/${id}`)
-	}
 
 	if (sucursales[0]) {
 		return (
@@ -84,11 +84,7 @@ const SucursalesPage = () => {
 			</div>
 		)
 	} else {
-		return (
-			<div>
-				<h1>Cargando...</h1>
-			</div>
-		)
+		return <Loading />
 	}
 }
 

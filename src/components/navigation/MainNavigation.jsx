@@ -1,22 +1,20 @@
-import React from "react"
 import clsx from "clsx"
-import { makeStyles, useTheme } from "@material-ui/core/styles"
+import { makeStyles } from "@material-ui/core/styles"
 import Drawer from "@material-ui/core/Drawer"
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import Typography from "@material-ui/core/Typography"
-import Divider from "@material-ui/core/Divider"
 import IconButton from "@material-ui/core/IconButton"
 import MenuIcon from "@material-ui/icons/Menu"
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft"
-import ChevronRightIcon from "@material-ui/icons/ChevronRight"
 // COMPONENTS
 import AppbarSearch from "./AppbarSearch"
-import DrawerList from "./DrawerList"
 import AppbarUserMenu from "./AppbarUserMenu"
+import DrawerBoxes from "./DrawerBoxes"
+import DrawerHead from "./DrawerHead"
 // Const
-import { colors } from "const/colors"
+import colors from "const/colors"
+import { useState } from "react"
 
 const drawerWidth = 240
 
@@ -73,13 +71,6 @@ const useStyles = makeStyles((theme) => ({
 			width: theme.spacing(9) + 1,
 		},
 	},
-	toolbar: {
-		display: "flex",
-		alignItems: "center",
-		justifyContent: "flex-end",
-		padding: theme.spacing(0, 1),
-		...theme.mixins.toolbar,
-	},
 	content: {
 		flexGrow: 1,
 		padding: theme.spacing(3),
@@ -89,9 +80,7 @@ const useStyles = makeStyles((theme) => ({
 export default function MainNavigation({ children }) {
 	// ------------------- DEFAULT ---------------------
 	const classes = useStyles()
-
-	const theme = useTheme()
-	const [open, setOpen] = React.useState(false)
+	const [open, setOpen] = useState(false)
 	const handleDrawerOpen = () => setOpen(true)
 	const handleDrawerClose = () => setOpen(false)
 	// ------------------------------------------------
@@ -130,6 +119,7 @@ export default function MainNavigation({ children }) {
 					<AppbarUserMenu />
 				</Toolbar>
 			</AppBar>
+			{/* DRAWER */}
 			<Drawer
 				variant='permanent'
 				className={clsx(classes.drawer, {
@@ -143,28 +133,11 @@ export default function MainNavigation({ children }) {
 					}),
 				}}
 			>
-				<div className={classes.toolbar}>
-					<img src='' alt='logo' />
-					<IconButton onClick={handleDrawerClose}>
-						{theme.direction === "rtl" ? (
-							<ChevronRightIcon />
-						) : (
-							<ChevronLeftIcon />
-						)}
-					</IconButton>
-				</div>
+				<DrawerHead closer={handleDrawerClose} />
 				{/* LIST EN DRAWER */}
-				<Divider />
-				<DrawerList
-					arr={["Inbox", "Starred", "Send email", "Drafts"]}
-					closer={handleDrawerClose}
-				/>
-				<Divider />
-				<DrawerList
-					arr={["All mail", "Trash", "Spam"]}
-					closer={handleDrawerClose}
-				/>
+				<DrawerBoxes closer={handleDrawerClose}></DrawerBoxes>
 			</Drawer>
+			{/* Resto del contenido */}
 			<main className={classes.content} onClick={handleDrawerClose}>
 				{children}
 			</main>
