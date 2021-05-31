@@ -2,17 +2,19 @@ import { useContext, useState } from "react"
 // Context
 import UserContext from "contexts/UserContextProvider"
 // Router
-import { Link, useHistory } from "react-router-dom"
+import { Link, useHistory, useLocation } from "react-router-dom"
 // Styles
 import { IconButton } from "@material-ui/core"
 import Menu from "@material-ui/core/Menu"
 import AccountCircle from "@material-ui/icons/AccountCircle"
 import MenuItem from "@material-ui/core/MenuItem"
 import routes from "const/routes"
+import colors from "const/colors"
 
 const AppbarUserMenu = () => {
 	const { user, logout } = useContext(UserContext)
 	const history = useHistory()
+	const location = useLocation()
 
 	const menuId = "primary-search-account-menu"
 	const [anchorEl, setAnchorEl] = useState(null)
@@ -50,6 +52,11 @@ const AppbarUserMenu = () => {
 		</Menu>
 	)
 
+	const loginPage = location.pathname === "/login"
+	const stylesIniciarSesionButton = {
+		color: colors.secondary.main,
+	}
+
 	return (
 		<>
 			{user ? (
@@ -66,9 +73,11 @@ const AppbarUserMenu = () => {
 					</IconButton>
 					{renderMenu}
 				</>
-			) : (
-				<Link to={routes.login.url}>Iniciar Sesion</Link>
-			)}
+			) : !loginPage ? (
+				<Link to={routes.login.url} style={stylesIniciarSesionButton}>
+					Iniciar Sesion
+				</Link>
+			) : null}
 		</>
 	)
 }
