@@ -1,20 +1,15 @@
 import { createContext, useState } from "react"
-
+import { useHistory } from "react-router"
 const UserContext = createContext()
 
-const initialUser = {
-	id: "83510P0K3R",
-	name: "Poker",
-	password: "123",
-	role: "admin", // regular o null
-}
-
-// const initialUser = null
-
 const UserContextProvider = ({ children }) => {
-	const [user, setUser] = useState(initialUser)
+	const [user, setUser] = useState(null)
+	const history = useHistory()
 
-	const login = () => setUser(initialUser)
+	const login = (user, fromlocation) => {
+		setUser(user)
+		fromlocation && history.push(fromlocation)
+	}
 	const logout = () => setUser(null)
 	const isLogged = () => !!user
 	const hasRole = function (role) {

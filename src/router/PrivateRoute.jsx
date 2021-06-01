@@ -8,7 +8,7 @@ export default function PrivateRoute({ hasRole: role, ...rest }) {
 	const { hasRole, isLogged } = useContext(UserContext)
 
 	if (role && !hasRole(role)) return <Redirect to={routes.home.url} />
-	if (!isLogged) {
+	if (!isLogged()) {
 		return (
 			<Redirect
 				to={{ pathname: routes.login.url, state: { from: location } }}

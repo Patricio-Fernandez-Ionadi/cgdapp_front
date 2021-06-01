@@ -71,8 +71,13 @@ const AppRouter = () => {
 				path={routes.sucursales.url}
 				component={SucursalesPage}
 			/>
+			<PrivateRoute
+				hasRole={user?.role}
+				exact
+				path={routes.facturas.url}
+				component={FacturasPage}
+			/>
 			<Route exact path={routes.register.url} component={RegisterPage} />
-			<Route exact path={routes.facturas.url} component={FacturasPage} />
 			<Route exact path={routes.login.url} component={LoginPage} />
 			<Route exact path={routes.home.url} component={HomePage} />
 			<Route path='*' component={NotFoundPage} />
