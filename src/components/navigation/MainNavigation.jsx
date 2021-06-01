@@ -54,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
 		whiteSpace: "nowrap",
 	},
 	drawerOpen: {
+		backgroundColor: colors.secondary.main,
 		width: drawerWidth,
 		transition: theme.transitions.create("width", {
 			easing: theme.transitions.easing.sharp,
@@ -61,6 +62,7 @@ const useStyles = makeStyles((theme) => ({
 		}),
 	},
 	drawerClose: {
+		backgroundColor: colors.secondary.main,
 		transition: theme.transitions.create("width", {
 			easing: theme.transitions.easing.sharp,
 			duration: theme.transitions.duration.leavingScreen,

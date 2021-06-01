@@ -4,7 +4,7 @@ import PrivateRoute from "./PrivateRoute"
 // PAGES
 import HomePage from "pages/HomePage"
 // facturas
-import FacturasPage from "pages/FacturasPage/FacturasPage"
+import NewInfoPage from "pages/FacturasPage/NewInfoPage"
 // sucursales
 import SucursalesPage from "pages/SucursalesPage/SucursalesPage"
 import SucursalesIDPage from "pages/SucursalesPage/SucursalesIDPage"
@@ -74,8 +74,8 @@ const AppRouter = () => {
 			<PrivateRoute
 				hasRole={user?.role}
 				exact
-				path={routes.facturas.url}
-				component={FacturasPage}
+				path={routes.newInfo.url}
+				component={NewInfoPage}
 			/>
 			<Route exact path={routes.register.url} component={RegisterPage} />
 			<Route exact path={routes.login.url} component={LoginPage} />

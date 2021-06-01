@@ -13,16 +13,17 @@ const DrawerBoxes = ({ closer }) => {
 
 	return (
 		<>
-			{user || !user ? (
-				<>
-					<Divider />
-					<DrawerList arr={[routes.home, routes.destacados]} closer={closer} />
-				</>
-			) : (
-				console.log(
-					"no hace falta log porque rompe la app si llega a este punto"
-				)
-			)}
+			{
+				user || !user ? (
+					<>
+						<Divider />
+						<DrawerList
+							arr={[routes.home, routes.destacados]}
+							closer={closer}
+						/>
+					</>
+				) : null // no se llega a este punto
+			}
 
 			{regular ||
 				(admin && (
@@ -43,7 +44,7 @@ const DrawerBoxes = ({ closer }) => {
 			{admin && (
 				<>
 					<Divider />
-					<DrawerList arr={[routes.facturas]} closer={closer} />
+					<DrawerList arr={[routes.newInfo]} closer={closer} />
 				</>
 			)}
 		</>

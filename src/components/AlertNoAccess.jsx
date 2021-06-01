@@ -6,7 +6,7 @@ import DialogContent from "@material-ui/core/DialogContent"
 import DialogContentText from "@material-ui/core/DialogContentText"
 import DialogTitle from "@material-ui/core/DialogTitle"
 import Slide from "@material-ui/core/Slide"
-import { Link, useHistory, useLocation } from "react-router-dom"
+import { useHistory, useLocation } from "react-router-dom"
 import routes from "const/routes"
 import colors from "const/colors"
 
@@ -14,7 +14,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 	return <Slide direction='up' ref={ref} {...props} />
 })
 
-export default function AlertDialogSlide() {
+export default function AlertDialogSlide({ content, title }) {
 	const [open, setOpen] = React.useState(true)
 	const history = useHistory()
 	const location = useLocation()
@@ -38,26 +38,10 @@ export default function AlertDialogSlide() {
 				aria-labelledby='alert-dialog-slide-title'
 				aria-describedby='alert-dialog-slide-description'
 			>
-				<DialogTitle id='alert-dialog-slide-title'>
-					{"Es realmente accesible a todos esta informacion?"}
-				</DialogTitle>
+				<DialogTitle id='alert-dialog-slide-title'>{title}</DialogTitle>
 				<DialogContent>
 					<DialogContentText id='alert-dialog-slide-description'>
-						Parece que no tienes acceso a esta pagina. Por favor{" "}
-						<Link
-							style={{ color: colors.danger.primary }}
-							to={routes.login.url}
-						>
-							inicia sesion
-						</Link>{" "}
-						o{" "}
-						<Link
-							style={{ color: colors.danger.primary }}
-							to={routes.register.url}
-						>
-							registrate
-						</Link>
-						.
+						{content}
 					</DialogContentText>
 				</DialogContent>
 				<DialogActions>

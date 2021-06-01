@@ -48,9 +48,9 @@ const routes = {
 		icon: <AccountTreeRoundedIcon />,
 		access: "private",
 	},
-	facturas: {
-		url: "/facturas",
-		name: "Facturas",
+	newInfo: {
+		url: "/admin-admin/newInfo",
+		name: "Crear Dato",
 		icon: <ConfirmationNumberRoundedIcon />,
 		access: "private",
 	},
