@@ -23,5 +23,11 @@ const colors = {
 		primary: "#444",
 		secondary: "#fafafa",
 	},
+	default: {
+		white: "#fff",
+		light: "#ddd",
+		dark: "#333",
+		black: "#000",
+	},
 }
 export default colors

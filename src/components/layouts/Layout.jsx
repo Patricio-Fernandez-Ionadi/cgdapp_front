@@ -4,11 +4,9 @@ import { makeStyles } from "@material-ui/core"
 const useStyles = makeStyles((theme) => ({
 	bodyContainer: {
 		width: "100%",
-		minHeight: "calc(100vh - 48px)",
-		paddingTop: "50px",
-		marginLeft: "auto",
-		marginRight: "auto",
-		backgroundColor: colors.secondary.light,
+		minHeight: "calc(100vh)",
+		padding: "80px 0",
+		backgroundColor: colors.default.white,
 		color: colors.text.primary,
 	},
 }))

@@ -75,7 +75,8 @@ const useStyles = makeStyles((theme) => ({
 	},
 	content: {
 		flexGrow: 1,
-		padding: theme.spacing(3),
+		padding: theme.spacing(0, 8),
+		backgroundColor: colors.secondary.light,
 	},
 }))
 
@@ -85,8 +86,6 @@ export default function MainNavigation({ children }) {
 	const [open, setOpen] = useState(false)
 	const handleDrawerOpen = () => setOpen(true)
 	const handleDrawerClose = () => setOpen(false)
-	// ------------------------------------------------
-
 	// ------------------------------------------------
 
 	return (

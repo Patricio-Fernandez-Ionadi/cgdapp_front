@@ -1,3 +1,4 @@
+import routes from "const/routes"
 import UserContext from "contexts/UserContextProvider"
 import { useContext, useState } from "react"
 import { useHistory } from "react-router"
@@ -40,7 +41,7 @@ const LoginPage = () => {
 			if (userCanBeLogged) {
 				res.json().then((res) => {
 					login(res[0])
-					history.push()
+					history.push(routes.profile.url)
 				})
 				setUserToSend({ user: "", pass: "" })
 			} else {
