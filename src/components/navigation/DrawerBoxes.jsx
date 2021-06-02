@@ -25,21 +25,20 @@ const DrawerBoxes = ({ closer }) => {
 				) : null // no se llega a este punto
 			}
 
-			{regular ||
-				(admin && (
-					<>
-						<Divider />
-						<DrawerList
-							arr={[
-								routes.profile,
-								routes.account,
-								routes.gastos,
-								routes.sucursales,
-							]}
-							closer={closer}
-						/>
-					</>
-				))}
+			{(regular || admin) && (
+				<>
+					<Divider />
+					<DrawerList
+						arr={[
+							routes.profile,
+							routes.account,
+							routes.gastos,
+							routes.sucursales,
+						]}
+						closer={closer}
+					/>
+				</>
+			)}
 
 			{admin && (
 				<>

@@ -35,7 +35,7 @@ const LoginPage = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		logUser(userToSend).then((res) => {
-			const userCanBeLogged = res.status === 200
+			const userCanBeLogged = res.status === 201
 
 			if (userCanBeLogged) {
 				res.json().then((res) => {
@@ -68,7 +68,7 @@ const LoginPage = () => {
 					value={userToSend.pass}
 					onChange={handleUserPass}
 				/>
-				<button>Ingresar</button>
+				<button onClick={handleSubmit}>Ingresar</button>
 			</form>
 		</div>
 	)
