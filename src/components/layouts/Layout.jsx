@@ -5,7 +5,7 @@ const useStyles = makeStyles((theme) => ({
 	bodyContainer: {
 		width: "100%",
 		minHeight: "calc(100vh)",
-		padding: "80px 0",
+		padding: "64px 0 0",
 		backgroundColor: colors.default.white,
 		color: colors.text.primary,
 	},

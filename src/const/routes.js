@@ -66,5 +66,11 @@ const routes = {
 		icon: <AccountBalanceIcon />,
 		access: "private",
 	},
+	adminUsers: {
+		url: "/admin-admin/usermanagement",
+		name: "Control Usuarios",
+		icon: <AccountTreeRoundedIcon />,
+		access: "private",
+	},
 }
 export default routes

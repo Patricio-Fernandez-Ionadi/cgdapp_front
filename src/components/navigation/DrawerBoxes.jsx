@@ -43,7 +43,10 @@ const DrawerBoxes = ({ closer }) => {
 			{admin && (
 				<>
 					<Divider />
-					<DrawerList arr={[routes.newInfo]} closer={closer} />
+					<DrawerList
+						arr={[routes.newInfo, routes.adminUsers]}
+						closer={closer}
+					/>
 				</>
 			)}
 		</>

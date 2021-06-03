@@ -1,25 +1,30 @@
+////// ROUTER
 import { Route, Switch } from "react-router"
-// COMPONENTS
+////// COMPONENTS
 import PrivateRoute from "./PrivateRoute"
-// PAGES
+////// PAGES
 import HomePage from "pages/HomePage"
-// facturas
-import NewInfoPage from "pages/FacturasPage/NewInfoPage"
+// admin
+import NewInfoPage from "pages/admin/NewInfoPage"
+import UsersControl from "pages/admin/UsersControl"
 // sucursales
-import SucursalesPage from "pages/SucursalesPage/SucursalesPage"
-import SucursalesIDPage from "pages/SucursalesPage/SucursalesIDPage"
-import SucursalesIDFacturaPage from "pages/SucursalesPage/SucursalesIDFacturaPage"
-import SucursalesIDProveedorPage from "pages/SucursalesPage/SucursalesIDProveedorPage"
+import SucursalesPage from "pages/sucursalesPage/SucursalesPage"
+import SucursalesIDPage from "pages/sucursalesPage/SucursalesIDPage"
+import SucursalesIDFacturaPage from "pages/sucursalesPage/SucursalesIDFacturaPage"
+import SucursalesIDProveedorPage from "pages/sucursalesPage/SucursalesIDProveedorPage"
+// users
+import UserProfile from "pages/userPages/UserProfile"
+import UserAccount from "pages/userPages/UserAccount"
+// login_register
+import LoginPage from "pages/login_register/LoginPage"
+import RegisterPage from "pages/login_register/RegisterPage"
+//
 import GastosPage from "pages/GastosPage"
 import DestacadosPage from "pages/DestacadosPage"
-import LoginPage from "pages/LoginPage"
-import UserProfile from "pages/UserProfile"
-import UserAccount from "pages/UserAccount"
 import NotFoundPage from "pages/NotFoundPage"
-import RegisterPage from "pages/RegisterPage"
-// CONST
+////// CONST
 import routes from "const/routes"
-// CONTEXT
+////// CONTEXT
 import { useContext } from "react"
 import UserContext from "contexts/UserContextProvider"
 
@@ -76,6 +81,12 @@ const AppRouter = () => {
 				exact
 				path={routes.newInfo.url}
 				component={NewInfoPage}
+			/>
+			<PrivateRoute
+				hasRole={user?.role}
+				exact
+				path={routes.adminUsers.url}
+				component={UsersControl}
 			/>
 			<Route exact path={routes.register.url} component={RegisterPage} />
 			<Route exact path={routes.login.url} component={LoginPage} />
