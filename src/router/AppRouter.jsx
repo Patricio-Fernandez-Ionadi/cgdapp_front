@@ -6,7 +6,7 @@ import PrivateRoute from "./PrivateRoute"
 import HomePage from "pages/HomePage"
 // admin
 import NewInfoPage from "pages/admin/NewInfoPage"
-import UsersControl from "pages/admin/UsersControl"
+import UsersControl from "pages/admin/UsersControl/index"
 // sucursales
 import SucursalesPage from "pages/sucursalesPage/SucursalesPage"
 import SucursalesIDPage from "pages/sucursalesPage/SucursalesIDPage"

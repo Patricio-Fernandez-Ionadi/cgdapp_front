@@ -24,6 +24,7 @@ The back-end of this app is
 
 - react-router-dom
 - @material-ui/core
+- @material-ui/lab
 - @material-ui/icons
 
 ## Preview
