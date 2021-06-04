@@ -63,8 +63,6 @@ const NewInfoPage = () => {
 	// 	(data) => console.log(data)
 	// )
 
-	const shouldAlertSuccess = (cb, state) => cb(state)
-
 	const shouldSendInfoForm = (e) => {
 		e.preventDefault()
 		postData(infoToSave)
