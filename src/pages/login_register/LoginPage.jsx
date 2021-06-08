@@ -40,7 +40,7 @@ const LoginPage = () => {
 			if (userCanBeLogged) {
 				res.json().then((res) => {
 					login(res)
-					history.push(`/${res._id}/profile`)
+					history.push(`/${res.name}/profile`)
 				})
 				setUserToSend({ user: "", pass: "" })
 			} else {
@@ -50,6 +50,7 @@ const LoginPage = () => {
 		})
 	}
 
+	console.log("in login page before render")
 	return (
 		<div>
 			<h1>LOGIN</h1>

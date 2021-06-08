@@ -1,7 +1,8 @@
 import { useHistory } from "react-router"
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
 // custom hooks
 import useIdSucursal from "hooks/useIdSucursal"
+import CollapsibleTable from "./components/CollapsibleTable"
 
 const SucursalesIDPage = ({ match }) => {
 	const history = useHistory()
@@ -16,14 +17,13 @@ const SucursalesIDPage = ({ match }) => {
 	return (
 		<div>
 			<button onClick={history.goBack}>atras</button>
-			<br />
-			<br />
-			<p>
+			<CollapsibleTable idsucursal={id}></CollapsibleTable>
+			{/* 	<p>
 				Sucursal {sucActual} || id: {id}
 			</p>
 			<br />
 
-			{/* facturas */}
+			facturas
 			<h3>facturas</h3>
 			{response.map((each) => {
 				const { _id, mes, factura, proveedor, fechaDocumento } = each
@@ -38,7 +38,7 @@ const SucursalesIDPage = ({ match }) => {
 				)
 			})}
 
-			{/* proveedores */}
+			proveedores
 			<h3>facturas por proveedor</h3>
 			<ul>
 				{proveedores.map((each) => (
@@ -46,7 +46,7 @@ const SucursalesIDPage = ({ match }) => {
 						<Link to={`/sucursales/${id}/PR/${each}`}>{each}</Link>
 					</li>
 				))}
-			</ul>
+			</ul> */}
 
 			{/* 
 			facturas (all data)

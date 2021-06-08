@@ -37,19 +37,16 @@ const routes = {
 		access: "public",
 	},
 	profile: {
-		url: "/:userId/profile",
 		name: "Perfil",
 		icon: <AccountCircleRoundedIcon />,
 		access: "private",
 	},
 	account: {
-		url: "/:userId/account",
 		name: "Cuenta",
 		icon: <AccountTreeRoundedIcon />,
 		access: "private",
 	},
 	newInfo: {
-		url: "/admin-admin/newInfo",
 		name: "Crear Dato",
 		icon: <ConfirmationNumberRoundedIcon />,
 		access: "private",
@@ -67,7 +64,6 @@ const routes = {
 		access: "private",
 	},
 	adminUsers: {
-		url: "/admin-admin/usermanagement",
 		name: "Control Usuarios",
 		icon: <AccountTreeRoundedIcon />,
 		access: "private",

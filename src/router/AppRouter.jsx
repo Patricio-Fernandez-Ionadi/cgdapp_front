@@ -29,10 +29,12 @@ import routes from "const/routes"
 
 const AppRouter = () => {
 	const { user } = useContext(UserContext)
-
 	return (
 		<Switch>
 			<Route exact path={routes.destacados.url} component={DestacadosPage} />
+			<Route exact path={routes.register.url} component={RegisterPage} />
+			<Route exact path={routes.login.url} component={LoginPage} />
+			<Route exact path={routes.home.url} component={HomePage} />
 			<PrivateRoute
 				hasRole={user?.role}
 				exact
@@ -87,9 +89,6 @@ const AppRouter = () => {
 				path={routes.adminUsers.url}
 				component={UsersControl}
 			/>
-			<Route exact path={routes.register.url} component={RegisterPage} />
-			<Route exact path={routes.login.url} component={LoginPage} />
-			<Route exact path={routes.home.url} component={HomePage} />
 			<Route path='*' component={NotFoundPage} />
 		</Switch>
 	)

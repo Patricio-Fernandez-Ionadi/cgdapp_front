@@ -11,8 +11,8 @@ const DrawerBoxes = ({ closer }) => {
 	const admin = user?.role === "admin"
 	if (admin) routes.newInfo.url = `/${user.name}/newInfo`
 	if (admin) routes.adminUsers.url = `/${user.name}/usermanagement`
-	routes.profile.url = `/${user.name}/profile`
-	routes.account.url = `/${user.name}/account`
+	if (user) routes.profile.url = `/${user.name}/profile`
+	if (user) routes.account.url = `/${user.name}/account`
 
 	return (
 		<>
