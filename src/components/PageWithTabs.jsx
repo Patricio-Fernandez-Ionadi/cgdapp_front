@@ -59,7 +59,11 @@ export default function PageWithTabs({ firstPanel, secondPanel, thirdPanel }) {
 						label='Peticiones de Usuario'
 						{...a11yProps(1)}
 					/>
-					<Tab className={classes.tab} label='Varios' {...a11yProps(2)} />
+					<Tab
+						className={classes.tab}
+						label='Usuarios Online'
+						{...a11yProps(2)}
+					/>
 				</Tabs>
 			</AppBar>
 			{/* //////////////////////////////////////////////////////////////// */}

@@ -3,7 +3,7 @@ import { useAllUsers } from "hooks/useAllUsers"
 import { useEffect } from "react"
 
 const UsersControl = () => {
-	const { allUsers, allPendingUsers } = useAllUsers()
+	const { allUsers, allPendingUsers, allOnlineUsers } = useAllUsers()
 
 	useEffect(() => {}, [allUsers, allPendingUsers])
 	// ----------//////////----------//////////----------//////////
@@ -85,7 +85,23 @@ const UsersControl = () => {
 	// ----------//////////----------//////////----------//////////
 	const renderThirdPanel = (
 		<>
-			<p>Third Panel</p>
+			<div>
+				{allOnlineUsers?.map((each) => {
+					const { name, lastName, isOnline, user, email, role, gender } = each
+					return (
+						<div key={email}>
+							<h3>
+								{name}, {lastName}
+							</h3>
+							<small>{isOnline ? "Esta Online" : "No esta conectado"}</small>
+							<p>
+								{user}, {role}
+							</p>
+							<small>{gender}</small>
+						</div>
+					)
+				})}
+			</div>
 		</>
 	)
 	// ----------//////////----------//////////----------//////////
