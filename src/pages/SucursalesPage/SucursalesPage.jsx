@@ -53,7 +53,7 @@ const SucursalesPage = () => {
 	}
 
 	useEffect(() => {
-		fetch("http://localhost:3001/api/sucursales")
+		fetch("http://localhost:3001/sucursales")
 			.then((res) => res.json())
 			.then((res) => setSucursales(res))
 	}, [])

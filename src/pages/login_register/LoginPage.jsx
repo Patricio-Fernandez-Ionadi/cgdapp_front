@@ -1,4 +1,3 @@
-import routes from "const/routes"
 import UserContext from "contexts/UserContextProvider"
 import { useContext, useState } from "react"
 import { useHistory } from "react-router"
@@ -8,7 +7,7 @@ const LoginPage = () => {
 	const history = useHistory()
 	//-------------------------------------------------------------------------------
 	async function logUser(object) {
-		const response = await fetch("http://localhost:3001/login", {
+		const response = await fetch("http://localhost:3001/sesion/login", {
 			method: "POST",
 			mode: "cors",
 			cache: "no-cache",
@@ -40,8 +39,8 @@ const LoginPage = () => {
 
 			if (userCanBeLogged) {
 				res.json().then((res) => {
-					login(res[0])
-					history.push(routes.profile.url)
+					login(res)
+					history.push(`/${res._id}/profile`)
 				})
 				setUserToSend({ user: "", pass: "" })
 			} else {

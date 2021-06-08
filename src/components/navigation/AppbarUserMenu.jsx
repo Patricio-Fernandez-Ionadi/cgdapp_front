@@ -23,17 +23,18 @@ const AppbarUserMenu = () => {
 	const handleMenuClose = () => setAnchorEl(null)
 
 	const handleProfileMenuItem = () => {
-		history.push(`/${user.id}/profile`)
+		console.log(user)
+		history.push(`/${user._id}/profile`)
 		handleMenuClose()
 	}
 	const handleAccountMenuItem = () => {
-		history.push(`/${user.id}/account`)
+		history.push(`/${user._id}/account`)
 		handleMenuClose()
 	}
 	const handleLogoutMenuItem = () => {
 		handleMenuClose()
 		logout()
-		history.push(`${routes.home.url}`)
+		history.push("/")
 	}
 
 	const renderMenu = (
