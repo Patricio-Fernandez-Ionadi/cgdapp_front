@@ -7,9 +7,12 @@ import UserContext from "contexts/UserContextProvider"
 
 const DrawerBoxes = ({ closer }) => {
 	const { user } = useContext(UserContext)
-
 	const regular = user?.role === "regular"
 	const admin = user?.role === "admin"
+	if (admin) routes.newInfo.url = `/${user.name}/newInfo`
+	if (admin) routes.adminUsers.url = `/${user.name}/usermanagement`
+	routes.profile.url = `/${user.name}/profile`
+	routes.account.url = `/${user.name}/account`
 
 	return (
 		<>

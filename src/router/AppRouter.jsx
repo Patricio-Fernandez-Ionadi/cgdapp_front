@@ -25,29 +25,30 @@ import NotFoundPage from "pages/NotFoundPage"
 ////// CONTEXT
 import { useContext } from "react"
 import UserContext from "contexts/UserContextProvider"
+import routes from "const/routes"
 
 const AppRouter = () => {
 	const { user } = useContext(UserContext)
 
 	return (
 		<Switch>
-			<Route exact path='/destacados' component={DestacadosPage} />
+			<Route exact path={routes.destacados.url} component={DestacadosPage} />
 			<PrivateRoute
 				hasRole={user?.role}
 				exact
-				path='/gastos'
+				path={routes.gastos.url}
 				component={GastosPage}
 			/>
 			<PrivateRoute
 				hasRole={user?.role}
 				exact
-				path='/:userId/profile'
+				path={routes.profile.url}
 				component={UserProfile}
 			/>
 			<PrivateRoute
 				hasRole={user?.role}
 				exact
-				path='/:userId/account'
+				path={routes.account.url}
 				component={UserAccount}
 			/>
 			<PrivateRoute
@@ -71,24 +72,24 @@ const AppRouter = () => {
 			<PrivateRoute
 				hasRole={user?.role}
 				exact
-				path='/sucursales'
+				path={routes.sucursales.url}
 				component={SucursalesPage}
 			/>
 			<PrivateRoute
 				hasRole={user?.role}
 				exact
-				path='/:admin/newInfo'
+				path={routes.newInfo.url}
 				component={NewInfoPage}
 			/>
 			<PrivateRoute
 				hasRole={user?.role}
 				exact
-				path='/:admin/usermanagement'
+				path={routes.adminUsers.url}
 				component={UsersControl}
 			/>
-			<Route exact path='/register' component={RegisterPage} />
-			<Route exact path='/login' component={LoginPage} />
-			<Route exact path='/' component={HomePage} />
+			<Route exact path={routes.register.url} component={RegisterPage} />
+			<Route exact path={routes.login.url} component={LoginPage} />
+			<Route exact path={routes.home.url} component={HomePage} />
 			<Route path='*' component={NotFoundPage} />
 		</Switch>
 	)
