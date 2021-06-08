@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react"
 
 const NewInfoPage = () => {
-	/////////////////////////////////////////////////////////////////////////////////////
-	/////////////////////////////////////////////////////////////////////////////////////
-	/////////////////////////////////////// DE MOMENTO FUERA DE SERVICIO ////////////////
-	/////////////////////////////////////////////////////////////////////////////////////
-	/////////////////////////////////////////////////////////////////////////////////////
-
-	// INFORMACION QUE SE RECIBE DESDE LA DB
+	/////////////////////////////////////////////////////////////////////////////
+	// Estado con la info de DB
 	const [recivedInfo, setRecivedInfo] = useState([])
+	/* GET DATA */
+	useEffect(() => {
+		fetch("http://localhost:3001/api")
+			.then((res) => res.json())
+			.then((res) => {
+				setRecivedInfo(res.reverse())
+			})
+	}, [recivedInfo])
 
+	/* POST DATA */
 	// OBJETO A ENVIAR
 	const [infoToSave, setInfoToSave] = useState({
 		sucursal: "",
@@ -31,28 +35,14 @@ const NewInfoPage = () => {
 		if (e.target.name === "factura")
 			setInfoToSave({ ...infoToSave, factura: valueToSave.toLocaleLowerCase() })
 	}
-	/////////////////////////////////////////////////////////////////////////////////////
-	/* GET DATA */
-	useEffect(() => {
-		fetch("http://localhost:3001/api")
-			.then((res) => res.json())
-			.then((res) => {
-				setRecivedInfo(res.reverse())
-			})
-	}, [recivedInfo])
 
-	/* POST DATA */
-	async function postData(object) {
-		const response = await fetch("http://localhost:3001/api", {
+	function postData(object) {
+		fetch("http://localhost:3001/api", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(object),
-		})
-		return response.json()
+		}).then((res) => res.json())
 	}
-	// postData({ name: "Poker desde react", content: "se vienen cositas" }).then(
-	// 	(data) => console.log(data)
-	// )
 
 	const shouldSendInfoForm = (e) => {
 		e.preventDefault()
@@ -64,7 +54,7 @@ const NewInfoPage = () => {
 		})
 	}
 
-	/////////////////////////////////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////////////////////////
 	/* DELETE DATA */
 	async function deleteData(object) {
 		const response = await fetch(
@@ -82,8 +72,8 @@ const NewInfoPage = () => {
 	const handleDeleteInfo = (object) => {
 		deleteData(object)
 	}
-	/////////////////////////////////////////////////////////////////////////////////////
 
+	/////////////////////////////////////////////////////////////////////////////
 	/* SOLO CUANDO HAYA INFORMACION MOSTRAR... */
 	if (recivedInfo[0]) {
 		return (

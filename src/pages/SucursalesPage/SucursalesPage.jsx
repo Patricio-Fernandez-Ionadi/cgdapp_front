@@ -6,6 +6,7 @@ import { useHistory } from "react-router"
 import colors from "const/colors"
 // COMPONENTS
 import Loading from "../../components/Loading"
+import GridComponent from "./components/GridComponent"
 
 const useStyles = makeStyles((theme) => ({
 	sucursalesContainer: {
@@ -63,7 +64,9 @@ const SucursalesPage = () => {
 			<div>
 				<h1>Sucursales</h1>
 
-				<div className={sucursalesContainer}>
+				<GridComponent />
+
+				{/* <div className={sucursalesContainer}>
 					<div className={flex}>
 						<div>Sucursal:</div>
 						<div>Id de sucursal</div>
@@ -80,7 +83,7 @@ const SucursalesPage = () => {
 							</div>
 						)
 					})}
-				</div>
+				</div> */}
 			</div>
 		)
 	} else {
