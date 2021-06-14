@@ -89,6 +89,7 @@ const AppRouter = () => {
 				path={routes.adminUsers.url}
 				component={UsersControl}
 			/>
+
 			<Route path='*' component={NotFoundPage} />
 		</Switch>
 	)

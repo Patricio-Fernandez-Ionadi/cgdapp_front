@@ -50,7 +50,6 @@ const LoginPage = () => {
 		})
 	}
 
-	console.log("in login page before render")
 	return (
 		<div>
 			<h1>LOGIN</h1>
